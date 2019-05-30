@@ -1,0 +1,34 @@
+
+<form #f="ngForm">
+
+    <div class="row">
+      <div class="col">
+        <input type="hidden" name="id" class="form-control"  [(ngModel)]="user.id">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" name="nome" placeholder="Nome"  [(ngModel)]="user.nome">
+      </div>
+      <div class="col">
+          <input type="text" class="form-control" name="password" placeholder="Password"  [(ngModel)]="user.password">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="email" placeholder="Email" [(ngModel)]="user.email">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" name="telefono" placeholder="Telefono" [(ngModel)]="user.tel">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" name="agenzia" placeholder="Agenzia" [(ngModel)]="user.agenzia">
+          </div>
+          <div class="col">
+              <input type="text" class="form-control" name="rete" placeholder="Rete" [(ngModel)]="user.rete">
+            </div>
+            <div class="col">
+              <div class="btn-group-toggle">
+                  <button class="btn-sm btn-primary" (click)="saveUser()">Invia</button>
+                  <button class="btn-sm btn-primary" (click)="resetForm(f.form)">Reset</button>
+              </div>
+
+            </div>
+    </div>
+  </form>

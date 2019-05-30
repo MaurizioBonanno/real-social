@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <h2>Utenti System Manager</h2>
+  <button class="btn-sm btn-primary"(click)="newUser()">Nuovo</button>
+  <app-user-form *ngIf="showForm"  [user]="userSelected"></app-user-form>
+  <hr>
+
+  <table class="table table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome Cognome</th>
+        <th scope="col">password</th>
+        <th scope="col">email</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Agenzia</th>
+        <th scope="col">Rete</th>
+        <th scope="col">Attivo</th>
+        <th scope="col">Azioni </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users | async">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.nome}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.tel}}</td>
+        <td>{{user.agenzia}}</td>
+        <td>{{user.rete}}</td>
+        <td>{{user.attivo}}</td>
+        <td>
+         <button class="btn btn-primary btn-sm"(click)="updateUser(user)">update</button>
+         <button class="btn btn-danger btn-sm"(click)="deleteUser(user)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
