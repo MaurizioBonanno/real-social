@@ -2,6 +2,7 @@ import { UserClass } from './../classi/UserClass';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Observable } from 'rxjs';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-userdata',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 export class UserdataComponent implements OnInit {
   showForm = false;
   userSelected: UserClass = new UserClass(); // questo è l'utente selezionato dalla lista che può essere aggiornato e cancellato
-  usersFireDatabase: Observable<any[]>;
+  usersFireDatabase$: Observable<User>;
   users: Observable<any[]>;
 
   constructor(private userService: UserService) {}

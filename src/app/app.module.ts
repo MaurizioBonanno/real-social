@@ -14,6 +14,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 
@@ -33,7 +34,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

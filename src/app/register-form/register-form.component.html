@@ -9,6 +9,8 @@
   <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </form>
 <div *ngIf="afService.user | async as user">
+
+  <img [src]="user.photoURL">
   <h1>Hello {{user.displayName}}</h1>
   <button class="btn btn-primary"(click)="logout()">Logout</button>
 </div>

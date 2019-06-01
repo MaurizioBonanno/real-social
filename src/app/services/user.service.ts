@@ -11,15 +11,7 @@ export class UserService {
 
   usersObservable: Observable<any[]>;
 
-  users: UserClass[] = [
-    {id: 1,  nome: 'Maurizio Bonanno',
-    password: 'io@io.it', email: 'mbonanno@remax.it',
-    tel: '3205504321', agenzia: 'specialisti', rete: 'remax'},
-    {id: 2,  nome: 'Cirino Pomicino',
-    password: 'io@io.it', email: 'mbonanno@remax.it',
-    tel: '3205445566', agenzia: 'specialisti', rete: 'remax'}
- ];
-
+  users: UserClass[];
   constructor(private db: AngularFireDatabase ) { }
 
   getUsers() {

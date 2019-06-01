@@ -1,4 +1,4 @@
-import { User } from './../interfaces/user';
+import { User, Roles } from './../interfaces/user';
 export class UserClass implements User {
 
   id: number;
@@ -8,6 +8,7 @@ export class UserClass implements User {
   tel: string;
   agenzia: string;
   rete: string;
+  roles: Roles;
 
       constructor(){
 
@@ -18,7 +19,7 @@ export class UserClass implements User {
         this.tel = '';
         this.agenzia = '';
         this.rete = '';
-
+        this.roles=null;
       }
 
 };
