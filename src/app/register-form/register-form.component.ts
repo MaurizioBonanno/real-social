@@ -1,6 +1,7 @@
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Profilo } from '../interfaces/profilo';
 
 
 @Component({
@@ -10,20 +11,25 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
 
+  profilo: Profilo;
+
   constructor(private afService: AuthService) { }
 
   ngOnInit() {
+    this.afService.user$.subscribe( user => {
+      this.profilo = user;
+    });
   }
 
-  registerUser(form: NgForm){
+  registerUser(form: NgForm) {
 
   }
 
-  googleLogin(){
+  googleLogin() {
     this.afService.loginWithGoogle();
   }
 
-  logout(){
+  logout() {
     this.afService.logOut();
   }
 
