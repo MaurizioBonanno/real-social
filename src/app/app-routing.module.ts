@@ -1,3 +1,5 @@
+import { AdminGuard } from './guards/admin.guard';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { UserdataComponent } from './userdata/userdata.component';
@@ -6,7 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: LoginPageComponent },
-  { path: 'userdata' , component: UserdataComponent}
+  { path: 'userdata' , component: UserdataComponent},
+  { path: 'admin' , component: AdminPageComponent , canActivate: [AdminGuard]}
 ];
 
 @NgModule({
