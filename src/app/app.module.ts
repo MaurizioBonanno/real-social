@@ -15,6 +15,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
 
@@ -26,7 +28,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     UserFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    NavbarComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

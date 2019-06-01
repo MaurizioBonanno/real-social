@@ -1,3 +1,4 @@
+<div *ngIf="!profilo">
 <form class="form-signin" #f="ngForm">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
@@ -8,9 +9,29 @@
   <button class="btn btn-lg btn-primary btn-block" (click)="googleLogin()" >Google Login</button>
   <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </form>
+</div>
 <div *ngIf="profilo">
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row my-4">
+    <div class="col-lg-8">
+        <img class="img-fluid rounded" [src]="profilo.photoURL">
+    </div>
+    <div class="col-lg-4">
+        <h1>Hello {{profilo.displayName}}</h1>
+        <ul>
+            <li>
+              Subscriber {{ profilo?.roles?.subscriber ? true : false}}
+            </li>
+            <li>
+              Admin {{ profilo?.roles?.admin ? true : false }}
+            </li>
+          </ul>
+          <button class="btn btn-primary"(click)="logout()">Logout</button>
 
-  <img [src]="profilo.photoURL">
-  <h1>Hello {{profilo.displayName}}</h1>
-  <button class="btn btn-primary"(click)="logout()">Logout</button>
+    </div>
+
+  </div>
+</div>
+
 </div>
