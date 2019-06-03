@@ -1,3 +1,6 @@
+
+import { SubscriberGuard } from './guards/subscriber.guard';
+import { AdminGuard } from './guards/admin.guard';
 import { AuthService } from './services/auth.service';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +20,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -39,9 +42,10 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AdminGuard, SubscriberGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
