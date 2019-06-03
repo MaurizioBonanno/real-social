@@ -21,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminDashboardComponent } from './admin-page/admin-dashboard/admin-dashboard.component';
 
 
 
@@ -33,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterFormComponent,
     LoginPageComponent,
     NavbarComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

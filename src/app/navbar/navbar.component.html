@@ -8,7 +8,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="profilo.roles.admin==true">
         <a class="nav-link" routerLink="/admin">Admin</a>
       </li>
       <li class="nav-item">
