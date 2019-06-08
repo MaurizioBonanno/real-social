@@ -1,3 +1,4 @@
+import { MaterialModule } from './modules/material.module';
 
 import { SubscriberGuard } from './guards/subscriber.guard';
 import { AdminGuard } from './guards/admin.guard';
@@ -25,6 +26,7 @@ import { AdminDashboardComponent } from './admin-page/admin-dashboard/admin-dash
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { AdminDashboardComponent } from './admin-page/admin-dashboard/admin-dash
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [AuthService, AdminGuard, SubscriberGuard],
   bootstrap: [AppComponent]
