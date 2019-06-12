@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatToolbarModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 import 'hammerjs';
 
 @NgModule({
@@ -13,13 +15,17 @@ import 'hammerjs';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports: [
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule
   ]
 })
 export class MaterialModule { }
