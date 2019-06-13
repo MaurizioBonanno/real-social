@@ -1,7 +1,7 @@
 import { Menu } from './../../services/menus/menus.service';
 import { MenusService } from '../../services/menus/menus.service';
-import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +9,8 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+
+  @ViewChild(MatSort) sort: MatSort;
 
   menuDetails: Menu = {
     title: '',
@@ -22,6 +24,10 @@ export class MenuComponent implements OnInit {
     this.menus.getMenus().subscribe((data: any) => {
     this.datasource.data = data;
     });
+  }
+
+  ngAfterViewInit() {
+    this.datasource.sort = this.sort;
   }
 
   addMenu(){
