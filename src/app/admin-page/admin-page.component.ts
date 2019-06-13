@@ -12,16 +12,6 @@ import { Component, OnInit } from '@angular/core';
 export class AdminPageComponent implements OnInit {
 
   profilo: Profilo;
-  links = [
-    {
-      name: 'Menu',
-      link: '/menu',
-    },
-    {
-      name: 'Post',
-      link: '/post',
-    }
-  ];
 
   constructor(public authService: AuthService) { }
 

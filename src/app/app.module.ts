@@ -1,3 +1,4 @@
+import { MenusService } from './services/menus/menus.service';
 import { MaterialModule } from './modules/material.module';
 
 import { SubscriberGuard } from './guards/subscriber.guard';
@@ -22,7 +23,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdminDashboardComponent } from './admin-page/admin-dashboard/admin-dashboard.component';
 import { MenuComponent } from './admin-page/menu/menu.component';
 import { PostsComponent } from './admin-page/posts/posts.component';
 
@@ -39,7 +39,6 @@ import { PostsComponent } from './admin-page/posts/posts.component';
     LoginPageComponent,
     NavbarComponent,
     AdminPageComponent,
-    AdminDashboardComponent,
     MenuComponent,
     PostsComponent
   ],
@@ -54,7 +53,7 @@ import { PostsComponent } from './admin-page/posts/posts.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [AuthService, AdminGuard, SubscriberGuard],
+  providers: [AuthService, AdminGuard, SubscriberGuard, MenusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
