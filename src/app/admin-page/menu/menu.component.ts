@@ -14,14 +14,13 @@ export class MenuComponent implements OnInit {
     title: '',
     url: ''
   }
-  datasource = new MatTableDataSource();
-  displayedColumns = [ "id" , "title" , "url"];
+  datasource = new MatTableDataSource<Menu>();
+  displayedColumns = [ 'id' , 'title' , 'url'];
   constructor(private menus: MenusService) { }
 
   ngOnInit() {
     this.menus.getMenus().subscribe((data: any) => {
-    this.datasource = data;
-    console.log(this.datasource);
+    this.datasource.data = data;
     });
   }
 
@@ -30,8 +29,9 @@ export class MenuComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-     console.log(filterValue);
-    this.datasource.filter = filterValue.trim().toLocaleLowerCase();
+    filterValue = filterValue.trim().toLocaleLowerCase();
+    this.datasource.filter = filterValue.trim();
+    console.log(filterValue);
   }
 
 }
