@@ -1,7 +1,7 @@
 import { Menu } from './../../services/menus/menus.service';
 import { MenusService } from '../../services/menus/menus.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-menu',
@@ -11,6 +11,7 @@ import { MatTableDataSource, MatSort } from '@angular/material';
 export class MenuComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   menuDetails: Menu = {
     title: '',
@@ -28,6 +29,7 @@ export class MenuComponent implements OnInit {
 
   ngAfterViewInit() {
     this.datasource.sort = this.sort;
+    this.datasource.paginator = this.paginator;
   }
 
   addMenu(){
