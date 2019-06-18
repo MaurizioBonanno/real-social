@@ -14,3 +14,7 @@ table {
 td, th {
   width: 25%;
 }
+
+.mat_column_action {
+  flex: 0 0 100px;
+}

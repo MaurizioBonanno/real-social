@@ -25,6 +25,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './admin-page/menu/menu.component';
 import { PostsComponent } from './admin-page/posts/posts.component';
+import { ConfirmationDialogComponent } from './admin-page/shared/confirmation-dialog/confirmation-dialog.component';
+import { EditMenuComponent } from './admin-page/menu/edit-menu/edit-menu.component';
 
 
 
@@ -40,7 +42,9 @@ import { PostsComponent } from './admin-page/posts/posts.component';
     NavbarComponent,
     AdminPageComponent,
     MenuComponent,
-    PostsComponent
+    PostsComponent,
+    ConfirmationDialogComponent,
+    EditMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,7 @@ import { PostsComponent } from './admin-page/posts/posts.component';
     MaterialModule
   ],
   providers: [AuthService, AdminGuard, SubscriberGuard, MenusService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationDialogComponent, EditMenuComponent]
 })
 export class AppModule { }

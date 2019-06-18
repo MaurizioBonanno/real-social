@@ -10,6 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 import 'hammerjs';
 
 @NgModule({
@@ -25,7 +26,8 @@ import 'hammerjs';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +40,8 @@ import 'hammerjs';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }
