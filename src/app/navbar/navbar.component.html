@@ -16,6 +16,10 @@
                 <mat-icon>account_circle</mat-icon>
                 <span>Admin</span>
             </a>
+            <a mat-menu-item href="posts" *ngIf="profilo.roles.admin==true">
+                <mat-icon>note_add</mat-icon>
+                <span>Posts</span>
+            </a>
             <button mat-menu-item>
               <mat-icon>exit_to_app</mat-icon>
               <span><button mat-button (click)="authService.logOut()">Logout</button></span>

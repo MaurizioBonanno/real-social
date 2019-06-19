@@ -27,6 +27,7 @@ import { MenuComponent } from './admin-page/menu/menu.component';
 import { PostsComponent } from './admin-page/posts/posts.component';
 import { ConfirmationDialogComponent } from './admin-page/shared/confirmation-dialog/confirmation-dialog.component';
 import { EditMenuComponent } from './admin-page/menu/edit-menu/edit-menu.component';
+import { EditPostsComponent } from './admin-page/posts/edit-posts/edit-posts.component';
 
 
 
@@ -44,7 +45,8 @@ import { EditMenuComponent } from './admin-page/menu/edit-menu/edit-menu.compone
     MenuComponent,
     PostsComponent,
     ConfirmationDialogComponent,
-    EditMenuComponent
+    EditMenuComponent,
+    EditPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +61,6 @@ import { EditMenuComponent } from './admin-page/menu/edit-menu/edit-menu.compone
   ],
   providers: [AuthService, AdminGuard, SubscriberGuard, MenusService],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationDialogComponent, EditMenuComponent]
+  entryComponents: [ConfirmationDialogComponent, EditMenuComponent, EditPostsComponent]
 })
 export class AppModule { }
