@@ -56,11 +56,11 @@ export class PostsComponent implements OnInit {
 
   edit_post(id: string, post: Posts) {
     this.posts.updatePost(id, post);
-  }
+  }//
 
   delete_post(id: string) {
     this.posts.deletePost(id);
-  }
+  }//
 
   openDialog(id: string): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
@@ -73,12 +73,12 @@ export class PostsComponent implements OnInit {
         this.delete_post(id);
       }
     });
-  }
+  }//
 
-  openEditDialog(id: string,title: string , url : string): void {
+  openEditDialog(id: string,title: string , content : string, menu_id: string): void {
     const dialogRef = this.dialog.open(EditPostsComponent, {
       width: '250px',
-      data: { title: title , url: url }
+      data: { title , content, menu_id, 'menus': this.menuList }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -87,6 +87,6 @@ export class PostsComponent implements OnInit {
         this.edit_post(id,result);
       }
     });
-  }
+  }//
 
 }

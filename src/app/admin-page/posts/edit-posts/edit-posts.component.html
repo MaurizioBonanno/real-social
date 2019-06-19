@@ -1,13 +1,23 @@
 <h2 mat-dialog-title>Modifica Il Menu</h2>
 <div mat-dialog-content>
     <div>
-        <mat-form-field>
-          <input matInput [(ngModel)]="data.title" placeholder="title">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="data.content" placeholder="url">
-        </mat-form-field>
-      </div>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.title" placeholder="title">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="data.content" placeholder="Content">
+      </mat-form-field>
+
+      <!--inserisco la select -->
+      <mat-form-field>
+        <mat-label> {{data.menu_id}} </mat-label>
+        <mat-select [(ngModel)]="data.menu_id">
+          <mat-option *ngFor="let menu of data.menus" [value]="menu.title" >
+            {{menu.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!--fine select  -->
 
 </div>
 <div mat-dialog-actions>
