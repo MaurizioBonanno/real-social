@@ -1,3 +1,5 @@
+import { MenusService } from './../services/menus/menus.service';
+
 import { AuthService } from './../services/auth.service';
 import { Profilo } from './../interfaces/profilo';
 import { Component, OnInit } from '@angular/core';
@@ -11,11 +13,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   profilo: Profilo;
-
-  constructor(public authService: AuthService) { }
+  menuList: any;
+  constructor(public authService: AuthService, private menus: MenusService) { }
 
   ngOnInit() {
     this.authService.user$.subscribe(user => this.profilo = user);//recupero i dati dell'utente
+    this.menus.getMenus().subscribe(menus=>{
+      this.menuList = menus;
+    });
   }
 
 

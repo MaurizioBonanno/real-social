@@ -29,6 +29,8 @@ import { ConfirmationDialogComponent } from './admin-page/shared/confirmation-di
 import { EditMenuComponent } from './admin-page/menu/edit-menu/edit-menu.component';
 import { EditPostsComponent } from './admin-page/posts/edit-posts/edit-posts.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FrontPageComponent } from './front-page/front-page.component';
+import { PagesComponent } from './front-page/pages/pages.component';
 
 
 
@@ -47,7 +49,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PostsComponent,
     ConfirmationDialogComponent,
     EditMenuComponent,
-    EditPostsComponent
+    EditPostsComponent,
+    FrontPageComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
