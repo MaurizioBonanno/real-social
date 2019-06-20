@@ -28,6 +28,7 @@ import { PostsComponent } from './admin-page/posts/posts.component';
 import { ConfirmationDialogComponent } from './admin-page/shared/confirmation-dialog/confirmation-dialog.component';
 import { EditMenuComponent } from './admin-page/menu/edit-menu/edit-menu.component';
 import { EditPostsComponent } from './admin-page/posts/edit-posts/edit-posts.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -57,7 +58,8 @@ import { EditPostsComponent } from './admin-page/posts/edit-posts/edit-posts.com
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AdminGuard, SubscriberGuard, MenusService],
   bootstrap: [AppComponent],

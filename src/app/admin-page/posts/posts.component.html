@@ -1,17 +1,18 @@
 <app-navbar></app-navbar>
 
 <div>
+ <form [formGroup]="postForm">
   <mat-form-field>
-    <input matInput [(ngModel)]="postDetails.title" placeholder="title">
+    <input matInput  formControlName="title" placeholder="title">
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="postDetails.content" placeholder="Content">
+    <input matInput  formControlName="content" placeholder="Content">
   </mat-form-field>
 
   <!--inserisco la select -->
   <mat-form-field>
     <mat-label>Scegli un menu</mat-label>
-    <mat-select [(ngModel)]="postDetails.menu_id">
+    <mat-select formControlName="menu_id">
       <mat-option *ngFor="let menu of menuList" [value]="menu.title" >
         {{menu.title}}
       </mat-option>
@@ -19,7 +20,10 @@
   </mat-form-field>
   <!--fine select  -->
 
-  <button mat-raised-button color="primary" (click)="addpost()">Add</button>
+  <button mat-raised-button color="primary" (click)="addpost()" [disabled]="!postForm.valid" >Add</button>
+</form>
+<p>Form status: {{ postForm.value | json }}</p>
+<p>Form status: {{ postForm.status | json }}</p>
 </div>
 
 

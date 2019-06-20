@@ -4,6 +4,7 @@ import { EditPostsComponent } from './edit-posts/edit-posts.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource, MatDialog } from '@angular/material';
 import { ConfirmationDialogComponent } from '../shared/confirmation-dialog/confirmation-dialog.component';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
@@ -19,14 +20,22 @@ export class PostsComponent implements OnInit {
     title: '',
     menu_id: '',
     content: ''
-  }
+  };
+
+  postForm: FormGroup;
 
   menuList: any;
   datasource = new MatTableDataSource<Posts>();
   displayedColumns = [ 'id' , 'title' , 'menu_id' ,'content', 'azioni'];
 
 
-  constructor(private posts: PostsService, private ms: MenusService, public dialog: MatDialog) { }
+  constructor(private posts: PostsService, private ms: MenusService, public dialog: MatDialog, private fb: FormBuilder) {
+    this.postForm = this.fb.group({
+      title: ['', Validators.required],
+      menu_id: ['' , Validators.required ],
+      content: ['', Validators.required]
+    });
+   }
 
   ngOnInit() {
     this.posts.getPosts().subscribe((data: any) => {
@@ -45,7 +54,7 @@ export class PostsComponent implements OnInit {
   }
 
   addpost(){
-    this.posts.addPost(this.postDetails);
+    this.posts.addPost(this.postForm.value);
   }
 
   applyFilter(filterValue: string) {
