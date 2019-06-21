@@ -26,6 +26,18 @@ export class PostsService {
      )
   }//
 
+  getSelectedPosts(field: string, condition: any, value: string){
+    return this.afs.collection('posts', ref=>ref.where(field,condition,value)).snapshotChanges().pipe(
+      map( post => {
+        return post.map( p => {
+          const data = p.payload.doc.data() as Posts;
+          const id = p.payload.doc.id;
+          return { id , ...data};
+        })
+      })
+    )
+ }//
+
   addPost(post: Posts){
     this.afs.collection('posts').add(post);
   }

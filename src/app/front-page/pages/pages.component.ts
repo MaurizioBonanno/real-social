@@ -1,5 +1,7 @@
+import { MenusService } from './../../services/menus/menus.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PostsService } from 'src/app/services/posts/posts.service';
 
 @Component({
   selector: 'app-pages',
@@ -8,9 +10,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PagesComponent implements OnInit {
 
-  constructor(private art: ActivatedRoute) {
+  menu: any;
+  postList: any;
+  constructor(private art: ActivatedRoute, private menus: MenusService, private ps: PostsService) {
     this.art.params.subscribe( params => {
       console.log(params);
+      this.menus.getSelectMenus('url', '==', params.url).subscribe(result => {
+        console.log(result);
+        if(result.length > 0){
+           this.menu = result[0];
+           this.postList = this.ps.getSelectedPosts('menu_id','==', this.menu.title).subscribe(posti => {
+             console.log(posti);
+             this.postList = posti;
+           })
+        }
+      })
     });
    }
 
