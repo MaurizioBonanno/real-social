@@ -6,3 +6,20 @@
 
   background-size: cover;
 }
+
+.cards{
+  column-count: 1;
+  -webkit-column-count: 1;
+  column-gap: 1;
+  -webkit-column-gap: 1;
+  padding: 1;
+}
+
+.mat-card{
+  display: inline-block;
+  position: static;
+  margin: 10px;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  width: 90%;
+}
