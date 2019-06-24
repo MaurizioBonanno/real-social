@@ -50,4 +50,10 @@ export class AuthService {
   logOut() {
     this.afAuth.auth.signOut();
   }
+
+  signWithEmailPssw(email: string, password: string){
+       this.afAuth.auth.createUserWithEmailAndPassword(email,password).then(credential => {
+          this.updateUser(credential.user);
+       });
+  }
 }

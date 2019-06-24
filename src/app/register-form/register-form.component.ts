@@ -1,6 +1,6 @@
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Profilo } from '../interfaces/profilo';
 
 
@@ -12,17 +12,25 @@ import { Profilo } from '../interfaces/profilo';
 export class RegisterFormComponent implements OnInit {
 
   profilo: Profilo;
+  userForm: FormGroup;
 
-  constructor(private afService: AuthService) { }
+  constructor(private afService: AuthService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.afService.user$.subscribe( user => {
       this.profilo = user;
     });
+
+    this.userForm = this.fb.group({
+      'inputEmail': ['', [ Validators.required, Validators.email ]],
+      'inputPassword': ['', [ Validators.required ]]
+    } );
   }
 
-  registerUser(form: NgForm) {
-
+  registerUser() {
+     let email = this.userForm.value['inputEmail'];
+     let password = this.userForm.value['inputPassword'];
+     this.afService.signWithEmailPssw(email,password);
   }
 
   googleLogin() {

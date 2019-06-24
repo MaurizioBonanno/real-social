@@ -35,6 +35,7 @@ import { PagesComponent } from './front-page/pages/pages.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

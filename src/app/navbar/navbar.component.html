@@ -11,10 +11,6 @@
           </button>
          <div class="example-spacer"></div>
 
-         <div *ngFor="let menu of menuList">
-           <button mat-button routerLink="/page/{{ menu.url }}" > {{menu.title}} </button>
-         </div>
-          <button mat-button routerLink="/articles">Articoli</button>
           <mat-menu #menu="matMenu">
             <a mat-menu-item href="/">
               <mat-icon>account_circle</mat-icon>
@@ -34,6 +30,11 @@
               <mat-icon>exit_to_app</mat-icon>
               <span><button mat-button (click)="authService.logOut()">Logout</button></span>
             </button>
+
+            <!--menu dinamici-->
+            <div>
+            <button *ngFor="let menu of menuList" mat-menu-item routerLink="/page/{{ menu.url }}" > {{menu.title}} </button>
+          </div>
           </mat-menu>
 
   </mat-toolbar-row>

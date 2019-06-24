@@ -1,13 +1,14 @@
 <div *ngIf="!profilo">
-<form class="form-signin" #f="ngForm">
+<form class="form-signin" [formGroup]="userForm" (ngSubmit)="registerUser()"  >
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+  <input type="email" formControlName="inputEmail" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
-  <button class="btn btn-lg btn-primary btn-block" (click)="registerUser(f.form)">Sign in</button>
-  <button class="btn btn-lg btn-primary btn-block" (click)="googleLogin()" >Google Login</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+  <input type="password" formControlName="inputPassword" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+  <button class="btn-sm btn-lg btn-primary btn-block" (click)="googleLogin()" >Google Login</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>
 </div>
 <div *ngIf="profilo">
