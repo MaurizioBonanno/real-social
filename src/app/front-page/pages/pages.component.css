@@ -15,7 +15,7 @@
   padding: 1;
 }
 
-.mat-card{
+mat-card{
   display: inline-block;
   position: static;
   margin: 10px;

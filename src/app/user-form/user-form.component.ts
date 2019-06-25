@@ -16,20 +16,4 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  saveUser(){
-    if(confirm('sei sicuro di vole salvare i dati')){
-    if(this.user.id > 0){ //id è > 0 quindi è un update
-        this.us.updateUser(this.user);
-    }else{
-      //crea un nuovo utente
-      this.us.createUser(this.user);
-    }
-  }
-  };
-
-  resetForm(form) {
-    form.reset();
-  }
-
 }

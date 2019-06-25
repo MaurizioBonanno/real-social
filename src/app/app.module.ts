@@ -10,7 +10,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserdataComponent } from './userdata/userdata.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
@@ -31,6 +30,7 @@ import { EditPostsComponent } from './admin-page/posts/edit-posts/edit-posts.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { PagesComponent } from './front-page/pages/pages.component';
+import { AdminUsersComponent } from './admin-page/admin-users/admin-users.component';
 
 
 
@@ -39,7 +39,6 @@ import { PagesComponent } from './front-page/pages/pages.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserdataComponent,
     UserFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
@@ -52,7 +51,8 @@ import { PagesComponent } from './front-page/pages/pages.component';
     EditMenuComponent,
     EditPostsComponent,
     FrontPageComponent,
-    PagesComponent
+    PagesComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule,

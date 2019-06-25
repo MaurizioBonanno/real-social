@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
-<div class="cards" >
-    <mat-card class="example-card" *ngFor="let post of postList">
+<div class="container" >
+  <div class="row">
+    <mat-card class="cards col-lg-4" *ngFor="let post of postList">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"><mat-icon class="mat-18">insert_comment</mat-icon></div>
           <mat-card-title> {{post.title}} </mat-card-title>
@@ -17,4 +18,5 @@
           <button mat-button>SHARE</button>
         </mat-card-actions>
       </mat-card>
+    </div>
 </div>

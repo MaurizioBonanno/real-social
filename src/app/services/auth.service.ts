@@ -43,7 +43,6 @@ export class AuthService {
         admin: false
       }
     }
-
     return userRef.set(data, {merge: true});
   };
 

@@ -1,7 +1,10 @@
-import { UserClass } from './../classi/UserClass';
+import { map } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { UserClass } from '../classi/UserClass';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
+import { Profilo } from '../interfaces/profilo';
 
 
 @Injectable({
@@ -11,30 +14,34 @@ export class UserService {
 
   usersObservable: Observable<any[]>;
 
-  users: UserClass[];
-  constructor(private db: AngularFireDatabase ) { }
+  users: Profilo[];
+  constructor(private db: AngularFireDatabase, private afs: AngularFirestore ) { }
 
   getUsers() {
-    return this.users;
+    return this.afs.collection('profili').snapshotChanges().pipe(
+      map( profilo => {
+        return profilo.map( a => {
+          const data = a.payload.doc.data() as Profilo;
+          const id = a.payload.doc.id;
+          return { id , ...data };
+        });
+      })
+    );
   }
 
-  deleteUser(user: UserClass) {
-     const index = this.users.indexOf(user);
-     if (index >= 0) {
-      this.users.splice(index , 1);
-     }
+  deleteUser(user: Profilo) {
+     this.afs.collection('profili').doc(user.uid).delete().then(() => {
+       console.log('utente cancellato');
+     }).catch((error) => {
+       console.log(error);
+     });
   }
 
-  updateUser(user: UserClass) {
+  updateUser(user: Profilo) {
 
-    const idx = this.users.findIndex((v) => v.id === user.id);
-    console.log('id trovato:' + user.id + 'nella posizione:' + idx);
-    if(idx !== -1){
-       this.users[idx] = user;
-    }
   };
 
-  createUser(user: UserClass){
+  createUser(user: Profilo){
      // uso splice , stavolta non elimino nessuno 1 parametro =0 vuol dire che è alla pos 0 dell'array
      //2 argomento =0 vuol dire che non elimino nessuno
      // 3 argomento = user
