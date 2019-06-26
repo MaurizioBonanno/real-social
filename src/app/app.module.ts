@@ -31,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { PagesComponent } from './front-page/pages/pages.component';
 import { AdminUsersComponent } from './admin-page/admin-users/admin-users.component';
+import { EditUserComponentComponent } from './admin-page/admin-users/edit-user-component/edit-user-component.component';
 
 
 
@@ -52,7 +53,8 @@ import { AdminUsersComponent } from './admin-page/admin-users/admin-users.compon
     EditPostsComponent,
     FrontPageComponent,
     PagesComponent,
-    AdminUsersComponent
+    AdminUsersComponent,
+    EditUserComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,6 @@ import { AdminUsersComponent } from './admin-page/admin-users/admin-users.compon
   ],
   providers: [AuthService, AdminGuard, SubscriberGuard, MenusService],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationDialogComponent, EditMenuComponent, EditPostsComponent]
+  entryComponents: [ConfirmationDialogComponent, EditMenuComponent, EditPostsComponent, EditUserComponentComponent]
 })
 export class AppModule { }

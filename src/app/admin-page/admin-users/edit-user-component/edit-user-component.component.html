@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Modifica Il Profilo</h2>
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.displayName" placeholder="Nome">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="data.email" placeholder="email">
+        </mat-form-field>
+        <hr>
+        Admin : {{ data?.roles?.admin ? true : false }}
+        <input type="checkbox" [(ngModel)]="data.roles.admin">
+      </div>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data">Conferma</button>
+    <button mat-button mat-dialog-close="false">Annulla</button>
+</div>
+

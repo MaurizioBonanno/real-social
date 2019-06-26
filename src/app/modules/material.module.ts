@@ -13,6 +13,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import 'hammerjs';
 
@@ -32,7 +33,8 @@ import 'hammerjs';
     MatSortModule,
     MatDialogModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ],
   exports: [
     MatButtonModule,
@@ -48,7 +50,8 @@ import 'hammerjs';
     MatSortModule,
     MatDialogModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

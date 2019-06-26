@@ -15,6 +15,7 @@ export class UserService {
   usersObservable: Observable<any[]>;
 
   users: Profilo[];
+
   constructor(private db: AngularFireDatabase, private afs: AngularFirestore ) { }
 
   getUsers() {
@@ -29,16 +30,16 @@ export class UserService {
     );
   }
 
-  deleteUser(user: Profilo) {
-     this.afs.collection('profili').doc(user.uid).delete().then(() => {
+  deleteUser(id: string) {
+     this.afs.collection('profili').doc(id).delete().then(() => {
        console.log('utente cancellato');
      }).catch((error) => {
        console.log(error);
      });
   }
 
-  updateUser(user: Profilo) {
-
+  updateUser(id: string, user: Profilo) {
+     this.afs.doc('/profili/' + id).update(user);
   };
 
   createUser(user: Profilo){
