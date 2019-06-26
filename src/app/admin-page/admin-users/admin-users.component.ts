@@ -61,10 +61,20 @@ export class AdminUsersComponent implements OnInit {
 
   openEditDialog (profilo: Profilo ){
     // tslint:disable-next-line:label-position
+    const fakeProfilo: Profilo = {
+      uid: profilo.uid,
+      email: profilo.email,
+      displayName: profilo.displayName,
+      photoURL: profilo.photoURL,
+      roles: {
+        subscriber: true,
+        admin: profilo.roles.admin
+      }
+    }
      console.log(profilo);
      const dialogRef = this.dialog.open(EditUserComponentComponent, {
       width: '250px',
-      data: profilo
+      data: fakeProfilo
     });
 
     dialogRef.afterClosed().subscribe(result => {
